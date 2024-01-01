@@ -1,0 +1,5 @@
+rootProject.name = 'autotesting'
+include 'trader'
+include 'database'
+include 'test-data'
+

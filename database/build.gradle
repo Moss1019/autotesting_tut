@@ -1,0 +1,5 @@
+
+dependencies {
+    implementation 'org.jooq:jooq-codegen:3.19.1'
+    implementation 'org.postgresql:postgresql:42.7.1'
+}
