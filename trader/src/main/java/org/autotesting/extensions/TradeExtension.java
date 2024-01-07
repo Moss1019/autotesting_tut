@@ -14,8 +14,8 @@ public class TradeExtension {
     public static Trade fromRecord(org.jooq.Record record) {
         var trade = new Trade();
         trade.id = record.get(tbl.TRADE_ID);
-        trade.accountNumber = record.get(aTbl.ACCOUNT_NUMBER);
-        trade.currency = record.get(cTbl.TITLE);
+        trade.accountNumber = record.get(aTbl.ACCOUNT_NUMBER).trim();
+        trade.currency = record.get(cTbl.TITLE).trim();
         trade.openPrice = record.get(tbl.BID_PRICE);
         trade.openTime = record.get(tbl.OPEN_TIME);
         return trade;

@@ -8,8 +8,8 @@ public class AccountExtension {
     public static Account fromRecord(org.jooq.Record record) {
         var account = new Account();
         account.id = record.get(tbl.ACCOUNT_ID);
-        account.username = record.get(tbl.USERNAME);
-        account.accountNumber = record.get(tbl.ACCOUNT_NUMBER);
+        account.username = record.get(tbl.USERNAME).trim();
+        account.accountNumber = record.get(tbl.ACCOUNT_NUMBER).trim();
         return account;
     }
 

@@ -4,6 +4,8 @@ import org.autotesting.database.tables.Trade;
 import org.autotesting.extensions.AccountExtension;
 import org.autotesting.model.Account;
 
+import java.util.UUID;
+
 public class AccountRepository extends Repository {
     private static final org.autotesting.database.tables.Account tbl = org.autotesting.database.tables.Account.ACCOUNT;
 
@@ -25,6 +27,7 @@ public class AccountRepository extends Repository {
     }
 
     public boolean insert(Account newAccount) {
+        newAccount.accountNumber = UUID.randomUUID().toString();
         var insert = ctx.insertInto(tbl)
                 .columns(tbl.ACCOUNT_NUMBER, tbl.USERNAME)
                 .values(newAccount.accountNumber, newAccount.username);

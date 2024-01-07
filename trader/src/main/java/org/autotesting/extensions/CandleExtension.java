@@ -11,7 +11,7 @@ public class CandleExtension {
     public static Candle fromRecord(org.jooq.Record record) {
         var candle = new Candle();
         candle.id = record.get(tbl.CANDLE_ID);
-        candle.currency = record.get(cTbl.TITLE);
+        candle.currency = record.get(cTbl.TITLE).trim();
         candle.open = record.get(tbl.OPEN_PRICE);
         candle.close = record.get(tbl.CLOSE_PRICE);
         candle.high = record.get(tbl.HIGH_PRICE);
