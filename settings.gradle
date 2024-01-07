@@ -1,5 +1,18 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        mavenLocal()
+    }
+
+    plugins {
+        id "io.quarkus" version "3.6.4"
+    }
+}
+
 rootProject.name = 'autotesting'
 include 'trader'
 include 'database'
 include 'test-data'
+include 'trader-api'
 

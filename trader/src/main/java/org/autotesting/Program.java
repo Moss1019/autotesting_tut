@@ -3,13 +3,13 @@ package org.autotesting;
 import org.autotesting.bot.SmaBot;
 import org.autotesting.indicator.SimpleMovingAverage;
 import org.autotesting.model.Account;
-import org.autotesting.model.Trade;
 import org.autotesting.service.AccountService;
 import org.autotesting.service.CandleService;
 import org.autotesting.service.TradeService;
 import org.autotesting.util.UserInput;
 
-import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Program {
     private static boolean isRunning;
@@ -24,10 +24,13 @@ public class Program {
 
     private static Account testAccount = setUpTestAccount();
 
+    private static Logger log = LogManager.getLogger(Program.class);
+
     public static void main(String[] args) {
         var user = new UserInput(System.in);
         isRunning = true;
         worker.start();
+        log.info("Worker started");
         while(isRunning) {
             var input = user.getInput();
             switch (input) {
@@ -84,7 +87,7 @@ public class Program {
         var bot = new SmaBot("eur/usd");
         while(isRunning) {
             if(bot.process(testAccount)) {
-
+                log.info("Trade placed");
             }
             try {
                 Thread.sleep(1000);

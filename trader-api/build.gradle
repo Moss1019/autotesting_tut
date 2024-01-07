@@ -1,0 +1,16 @@
+plugins {
+    id 'io.quarkus'
+}
+
+dependencies {
+    implementation enforcedPlatform("io.quarkus.platform:quarkus-bom:3.6.4")
+    implementation 'io.quarkus:quarkus-resteasy-reactive-jsonb'
+    implementation 'io.quarkus:quarkus-resteasy-reactive'
+    implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-smallrye-openapi:3.6.4'
+
+    implementation 'org.jboss.logmanager:log4j2-jboss-logmanager:1.1.2.Final'
+    implementation 'io.quarkus:quarkus-logging-json:3.6.4'
+
+    implementation project(path: ':database')
+}
