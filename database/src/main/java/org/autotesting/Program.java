@@ -5,7 +5,7 @@ import org.jooq.meta.jaxb.*;
 
 public class Program {
     public static void main(String[] args) {
-        var fileDirectory = String.format("%s/Database/src/main/java", System.getProperty("user.dir"));
+        var fileDirectory = String.format("%s/database/src/main/java", System.getProperty("user.dir"));
         try {
             GenerationTool.generate(new Configuration()
                     .withJdbc(new Jdbc()

@@ -47,14 +47,14 @@ public class Program {
                 }
 
                 case "-usd" -> {
-                    var candles = candleService.getCandles("eur/usd", 0, 10);
+                    var candles = candleService.getCandles("eur/usd", 10, 0);
                     for(var c: candles) {
                         System.out.println(c);
                     }
                 }
 
                 case "-chf" -> {
-                    var candles = candleService.getCandles("eur/chf", 0, 10);
+                    var candles = candleService.getCandles("eur/chf", 10, 0);
                     for(var c: candles) {
                         System.out.println(c);
                     }
@@ -62,7 +62,7 @@ public class Program {
 
                 case "-indusd" -> {
                     var sma = new SimpleMovingAverage(10);
-                    sma.calculate(candleService.getCandles("eur/usd", 0, 50));
+                    sma.calculate(candleService.getCandles("eur/usd", 50, 0));
                     for(var v: sma.getValues()) {
                         System.out.println(v);
                     }
@@ -70,7 +70,7 @@ public class Program {
 
                 case "-indchf" -> {
                     var sma = new SimpleMovingAverage(10);
-                    sma.calculate(candleService.getCandles("eur/chf", 0, 50));
+                    sma.calculate(candleService.getCandles("eur/chf", 50, 0));
                     for(var v: sma.getValues()) {
                         System.out.println(v);
                     }
@@ -90,7 +90,7 @@ public class Program {
                 log.info("Trade placed");
             }
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5000);
             } catch (Exception ignored) {}
         }
     }
